@@ -11,15 +11,14 @@ const Upload = () => {
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
     const [isProcessing, setIsProcessing] = useState(false);
-    const [statusText, setStatusText] = useState("");
+    const [statusText, setStatusText] = useState('');
     const [file, setFile] = useState<File | null>(null)
 
     const handleFileSelect = (file: File | null) => {
         setFile(file)
     }
 
-    const handleAnalyze = async ({ companyName, jobTitle, jobDescription, file }:
-                                 { companyName: string, jobTitle: string, jobDescription: string, file: File}) => {
+    const handleAnalyze = async ({ companyName, jobTitle, jobDescription, file }: { companyName: string, jobTitle: string, jobDescription: string, file: File}) => {
         setIsProcessing(true);
         setStatusText('Uploading the file...');
 
